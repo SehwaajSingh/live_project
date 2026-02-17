@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Landing Page</title>
+
+  <!-- ===== CSS ===== -->
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #22c55e;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #64748b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #eef2ff, #ecfeff);
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(79,70,229,0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* ===== Features ===== */
+    .features {
+      padding: 5rem 2rem;
+      background: white;
+    }
+
+    .features h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.2rem;
+    }
+
+    .features-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 1.25rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      color: var(--gray);
+    }
+
+    /* ===== CTA ===== */
+    .cta {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+
+    /* ===== Animations ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <nav>
+    <div class="logo">MyLanding</div>
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#cta">Get Started</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="hero-content fade-in">
+      <h1>Build Beautiful Landing Pages Faster</h1>
+      <p>Create modern, responsive, and high-converting landing pages with a clean design system and smooth animations.</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="scrollToSection('features')">Explore Features</button>
+        <button class="btn btn-secondary" onclick="alert('Demo action!')">Live Demo</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Features ===== -->
+  <section id="features" class="features">
+    <h2 class="fade-in">Features</h2>
+    <div class="features-grid">
+      <div class="feature-card fade-in">
+        <h3>⚡ Fast</h3>
+        <p>Optimized layout and clean structure for high performance.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <h3>🎨 Modern UI</h3>
+        <p>Trendy design, smooth animations, and soft shadows.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <h3>📱 Responsive</h3>
+        <p>Looks perfect on desktop, tablet, and mobile devices.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section id="cta" class="cta fade-in">
+    <h2>Start Building Today</h2>
+    <p>Use this single-file landing page template for startups, products, SaaS, or portfolios.</p>
+    <button class="btn btn-secondary" onclick="alert('Get Started Clicked!')">Get Started</button>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2026 MyLanding. All rights reserved.</p>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Fade-in animation on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
